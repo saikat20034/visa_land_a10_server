@@ -92,21 +92,21 @@ async function run() {
       const result = await BookingCollection.insertOne(bookingData);
       res.send(result);
     });
-    app.get('/applied-visa/:email', async (req, res) => {
-      const email = req.params.email;
-      const result = await BookingCollection.find({
-        'host.email': email,
-      }).toArray();
-      res.send(result);
-    });
-    // app.delete('/visa-cancel/:id', async (req, res) => {
-    //   const { id } = req.params;
-    //   console.log(id);
-    //   const result = await BookingCollection.deleteOne({
-    //     _id: new ObjectId(id),
-    //   });
+    // app.get('/applied-visa/:email', async (req, res) => {
+    //   const email = req.params.email;
+    //   const result = await BookingCollection.find({
+    //     'host.email': email,
+    //   }).toArray();
     //   res.send(result);
     // });
+    app.delete('/visa-cancel/:id', async (req, res) => {
+      const { id } = req.params;
+      console.log(id);
+      const result = await BookingCollection.deleteOne({
+        _id: new ObjectId(id),
+      });
+      res.send(result);
+    });
 
 
 

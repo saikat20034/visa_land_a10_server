@@ -70,11 +70,11 @@ async function run() {
       const result = await VisasCollection.insertOne(newVisa);
       res.send(result);
     });
-    // app.put('/visa-update/:id', async (req, res) => {
-    //   const id = req.params.id;
-    //   const filter = { _id: new ObjectId(id) };
-    //   const options = { upsert: true };
-    //   const updatedVisa = req.body;
+    app.put('/visa-update/:id', async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updatedVisa = req.body;
 
       const updateVisa = {
         $set: updatedVisa,
@@ -87,11 +87,11 @@ async function run() {
       res.send(result);
     });
 
-    app.post('/apply-visa', async (req, res) => {
-      const bookingData = req.body;
-      const result = await BookingCollection.insertOne(bookingData);
-      res.send(result);
-    });
+    // app.post('/apply-visa', async (req, res) => {
+    //   const bookingData = req.body;
+    //   const result = await BookingCollection.insertOne(bookingData);
+    //   res.send(result);
+    // });
     app.get('/applied-visa/:email', async (req, res) => {
       const email = req.params.email;
       const result = await BookingCollection.find({

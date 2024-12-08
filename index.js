@@ -70,11 +70,11 @@ async function run() {
       const result = await VisasCollection.insertOne(newVisa);
       res.send(result);
     });
-    app.put('/visa-update/:id', async (req, res) => {
-      const id = req.params.id;
-      const filter = { _id: new ObjectId(id) };
-      const options = { upsert: true };
-      const updatedVisa = req.body;
+    // app.put('/visa-update/:id', async (req, res) => {
+    //   const id = req.params.id;
+    //   const filter = { _id: new ObjectId(id) };
+    //   const options = { upsert: true };
+    //   const updatedVisa = req.body;
 
       const updateVisa = {
         $set: updatedVisa,

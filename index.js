@@ -92,13 +92,13 @@ async function run() {
       const result = await BookingCollection.insertOne(bookingData);
       res.send(result);
     });
-    // app.get('/applied-visa/:email', async (req, res) => {
-    //   const email = req.params.email;
-    //   const result = await BookingCollection.find({
-    //     'host.email': email,
-    //   }).toArray();
-    //   res.send(result);
-    // });
+    app.get('/applied-visa/:email', async (req, res) => {
+      const email = req.params.email;
+      const result = await BookingCollection.find({
+        'host.email': email,
+      }).toArray();
+      res.send(result);
+    });
     app.delete('/visa-cancel/:id', async (req, res) => {
       const { id } = req.params;
       console.log(id);
@@ -121,6 +121,6 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.listen(port, () => {
-  console.log(`Visa Land server listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Visa Land server listening on port ${port}`);
+// });

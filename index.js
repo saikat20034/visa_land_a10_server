@@ -99,14 +99,14 @@ async function run() {
       }).toArray();
       res.send(result);
     });
-    // app.delete('/visa-cancel/:id', async (req, res) => {
-    //   const { id } = req.params;
-    //   console.log(id);
-    //   const result = await BookingCollection.deleteOne({
-    //     _id: new ObjectId(id),
-    //   });
-    //   res.send(result);
-    // });
+    app.delete('/visa-cancel/:id', async (req, res) => {
+      const { id } = req.params;
+      console.log(id);
+      const result = await BookingCollection.deleteOne({
+        _id: new ObjectId(id),
+      });
+      res.send(result);
+    });
 
 
 
@@ -121,6 +121,6 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.listen(port, () => {
-  console.log(`Visa Land server listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Visa Land server listening on port ${port}`);
+// });

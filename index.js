@@ -99,21 +99,21 @@ async function run() {
       }).toArray();
       res.send(result);
     });
-    app.delete('/visa-cancel/:id', async (req, res) => {
-      const { id } = req.params;
-      console.log(id);
-      const result = await BookingCollection.deleteOne({
-        _id: new ObjectId(id),
-      });
-      res.send(result);
-    });
+    // app.delete('/visa-cancel/:id', async (req, res) => {
+    //   const { id } = req.params;
+    //   console.log(id);
+    //   const result = await BookingCollection.deleteOne({
+    //     _id: new ObjectId(id),
+    //   });
+    //   res.send(result);
+    // });
 
 
 
-    // await client.db('admin').command({ ping: 1 });
-    // console.log(
-    //   'Pinged your deployment. You successfully connected to MongoDB!'
-    // );
+    await client.db('admin').command({ ping: 1 });
+    console.log(
+      'Pinged your deployment. You successfully connected to MongoDB!'
+    );
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
